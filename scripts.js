@@ -123,7 +123,7 @@ function downloadWindowsFiles(game) {
     let files;
     if (game === 'game1') {
         files = [
-            'Games/Game1/Tank-Blitzkrieg-(Beta)-0.78.1.zip',
+            'Games/Game1/Tank-Blitzkrieg-(Beta)-0.78.1.7z',
         ];
     } else if (game === 'game2') {
         files = [
@@ -138,7 +138,7 @@ function downloadLinuxFiles(game) {
     let files;
     if (game === 'game1') {
         files = [
-            'Games/Game1/Tank-Blitzkrieg-(Beta)-0.78.1-Linux.7z'
+            'Games/Game1/Tank-Blitzkrieg-(Beta)-0.78.1.tar.7z'
         ];
     } else if (game === 'game2') {
         files = [
