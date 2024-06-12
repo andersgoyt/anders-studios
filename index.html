@@ -9,6 +9,7 @@
 <body>
     <header>
         <h1>Your Game Studio</h1>
+        <button id="toggle-mode">Toggle Mode</button>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -26,25 +27,18 @@
 
     <section id="games">
         <h2>Games</h2>
-        <div id="game-slideshow" class="slideshow-container">
-            <!-- Slideshow content -->
-        </div>
-        <br>
-        <div style="text-align:center">
-            <!-- Slideshow navigation dots -->
-        </div>
         <div class="game-info">
             <h3>Game 1</h3>
-            <!-- Button for Game 1 -->
-            <button class="game-download" data-file="game1_file_link">Download Game</button>
+            <!-- Buttons for Game 1 -->
+            <button class="game-download" data-file-linux="game1_linux_link" data-file-windows="game1_windows_link" data-file-sfx="game1_sfx_link">Download Game</button>
             <button class="game-website" data-website="game1_website_link">Visit Website</button>
             <img src="game1.jpg" style="width:100%">
             <p>Description of Game 1.</p>
         </div>
         <div class="game-info">
             <h3>Game 2</h3>
-            <!-- Button for Game 2 -->
-            <button class="game-download" data-file="game2_file_link">Download Game</button>
+            <!-- Buttons for Game 2 -->
+            <button class="game-download" data-file-linux="game2_linux_link" data-file-windows="game2_windows_link" data-file-sfx="game2_sfx_link">Download Game</button>
             <button class="game-website" data-website="game2_website_link">Visit Website</button>
             <img src="game2.jpg" style="width:100%">
             <p>Description of Game 2.</p>
@@ -63,50 +57,13 @@
 
     <section id="contact">
         <h2>Contact Us</h2>
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
+        <p>If you have any questions or inquiries, please feel free to <a href="mailto:your_email@example.com">send us an email</a>. We'll get back to you as soon as possible.</p>
     </section>
 
     <footer>
         <p>&copy; 2024 Your Game Studio. All rights reserved.</p>
     </footer>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        (function(){
-            emailjs.init("dfzcFxu__0zkrUPuz"); // Replace with your EmailJS user ID
-        })();
-
-        function sendEmail(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
-
-            // Get form data
-            const formData = new FormData(event.target);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-
-            // Send email using EmailJS
-            emailjs.send("service_2qd8jm4", "template_swg1was", {
-                name: name,
-                email: email,
-                message: message
-            }).then(function(response) {
-                console.log("Email sent successfully:", response);
-                // Handle success
-            }, function(error) {
-                console.error("Error sending email:", error);
-                // Handle error
-            });
-        }
-    </script>
     <script src="scripts.js"></script> <!-- Link to your JavaScript file -->
 </body>
 </html>
