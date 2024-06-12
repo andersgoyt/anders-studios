@@ -123,11 +123,11 @@ function downloadWindowsFiles(game) {
     let files;
     if (game === 'game1') {
         files = [
-            'Games/Game1/Tank-Blitzkrieg-(Beta)-0.78.1.7z',
+            'Games/Game1/Tank-Blitzkrieg-(Beta)-0.78.1.7z'
         ];
     } else if (game === 'game2') {
         files = [
-            'Games/Game2/4D-magic-block.zip',
+            'Games/Game2/4D-magic-block.zip'
         ];
     }
     downloadFiles(files);
@@ -142,7 +142,7 @@ function downloadLinuxFiles(game) {
         ];
     } else if (game === 'game2') {
         files = [
-            'Games/Game2/4D-magic-block.tar.gz',
+            'Games/Game2/4D-magic-block.tar.gz'
         ];
     }
     downloadFiles(files);
