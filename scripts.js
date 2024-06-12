@@ -1,46 +1,47 @@
 // JavaScript for your game studio website
 
-// Function to handle downloading game files for different platforms
 document.addEventListener('DOMContentLoaded', function() {
     const downloadButtons = document.querySelectorAll('.game-download');
+    const websiteButtons = document.querySelectorAll('.game-website');
 
     downloadButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const fileLinkLinux = this.getAttribute('data-file-linux');
-            const fileLinkWindows = this.getAttribute('data-file-windows');
-            const fileLinkSFX = this.getAttribute('data-file-sfx');
-            
-            // Determine platform and download the corresponding file
-            const platform = navigator.platform.toLowerCase();
-            if (platform.includes('linux')) {
-                downloadGame(fileLinkLinux);
-            } else if (platform.includes('win')) {
-                // Check if Windows is 32-bit or 64-bit
-                if (navigator.userAgent.includes('WOW64') || navigator.userAgent.includes('Win64')) {
-                    downloadGame(fileLinkWindows);
-                } else {
-                    downloadGame(fileLinkSFX);
-                }
-            } else {
-                // For other platforms, show an alert or handle accordingly
-                alert('Sorry, game download is not available for your platform.');
-            }
+            const fileLink = this.getAttribute('data-file');
+            downloadGame(fileLink);
         });
+    });
+
+    websiteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const websiteLink = this.getAttribute('data-website');
+            redirectToWebsite(websiteLink);
+        });
+    });
+
+    const modeToggle = document.getElementById('modeToggle');
+    modeToggle.addEventListener('click', function() {
+        const body = document.body;
+        if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            modeToggle.textContent = 'Toggle Dark Mode';
+        } else {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            modeToggle.textContent = 'Toggle Light Mode';
+        }
     });
 });
 
-// Function to download game file
 function downloadGame(fileLink) {
     window.location.href = fileLink;
 }
 
-// Function to redirect to game website
 function redirectToWebsite(websiteLink) {
     window.open(websiteLink, '_blank');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for anchor links
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(event) {
@@ -58,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Highlight active section in navigation
     const sections = document.querySelectorAll('section');
     window.addEventListener('scroll', function() {
         let currentSectionId = '';
@@ -72,17 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const activeNavLinks = document.querySelectorAll('nav ul li a');
         activeNavLinks.forEach(link => {
             if (link.getAttribute('href').substring(1) === currentSectionId) {
-                link.parentElement.classList.add('active'); // Add 'active' class
+                link.parentElement.classList.add('active');
             } else {
-                link.parentElement.classList.remove('active'); // Remove 'active' class from other links
+                link.parentElement.classList.remove('active');
             }
         });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleModeButton = document.getElementById('toggle-mode');
-    toggleModeButton.addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
     });
 });
