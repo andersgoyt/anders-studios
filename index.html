@@ -3,49 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Game Studio</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <title>Game Studio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="light-mode">
     <header>
-        <h1>Your Game Studio</h1>
-        <button id="toggle-mode">Toggle Mode</button>
+        <h1>Anders Studios</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#games">Games</a></li>
                 <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="mailto:youremail@example.com" target="_blank">Contact</a></li>
             </ul>
         </nav>
+        <button id="modeToggle">Toggle Dark Mode</button>
     </header>
-
+    
     <section id="about">
         <h2>About Us</h2>
-        <p>Provide an overview of your game studio here.</p>
+        <p>Welcome to our game studio! We create amazing games that entertain and inspire.</p>
     </section>
-
+    
     <section id="games">
         <h2>Games</h2>
-        <div class="game-info">
-            <h3>Game 1</h3>
-            <!-- Buttons for Game 1 -->
-            <button class="game-download" data-file-linux="game1_linux_link" data-file-windows="game1_windows_link" data-file-sfx="game1_sfx_link">Download Game</button>
-            <button class="game-website" data-website="game1_website_link">Visit Website</button>
-            <img src="game1.jpg" style="width:100%">
-            <p>Description of Game 1.</p>
+        <div id="game-slideshow" class="slideshow-container">
+            <!-- Slideshow content -->
+            <div class="mySlides fade">
+                <img src="game1.jpg" style="width:75%">
+            </div>
+            <div class="mySlides fade">
+                <img src="game2.jpg" style="width:75%">
+            </div>
+            <!-- Add more slides as needed -->
         </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <!-- Add more dots as needed -->
+        </div>
+        
         <div class="game-info">
-            <h3>Game 2</h3>
+            <h3>Tank Blitzkrieg (Beta)</h3>
+            <!-- Buttons for Game 1 -->
+            <button class="game-download" data-file="Games/Game1/Tank-Blitzkrieg-(Beta)-0.78.1.zip">Download for Windows</button>
+            <button class="game-download" data-file="Games/Game2/Tank-Blitzkrieg-(Beta)-0.78.1.tar.gz">Download for Linux</button>
+            <button class="game-download" data-file="Tank-Blitzkrieg-(Beta)-0.78.1.sfx.exe">Download SFX</button>
+            <button class="game-website" data-website="game1_website_link">Visit Website</button>
+            <br>
+            <img src="game1.jpg" alt="Game 1">
+            <p>This is a simple 2 player game that you play with your friend on the same computer.</p>
+            <p>Current verion: 0.78.1</p>
+        </div>
+        
+        <div class="game-info">
+            <h3>4D magic block</h3>
             <!-- Buttons for Game 2 -->
-            <button class="game-download" data-file-linux="game2_linux_link" data-file-windows="game2_windows_link" data-file-sfx="game2_sfx_link">Download Game</button>
+            <button class="game-download" data-file="Games/Game2/4D-magic-block.zip">Download for Windows</button>
+            <button class="game-download" data-file="Games/Games2/4D-magic-block.tar.gz">Download for Linux</button>
+            <button class="game-download" data-file="Game/Games2/4D_magic_block_SFX.exe">Download SFX</button>
             <button class="game-website" data-website="game2_website_link">Visit Website</button>
-            <img src="game2.jpg" style="width:100%">
+            <br>
+            <img src="game2.jpg" alt="Game 2">
             <p>Description of Game 2.</p>
         </div>
-        <!-- Add more game info sections as needed -->
     </section>
-
+    
     <section id="news">
         <h2>News</h2>
         <div class="news-item">
@@ -55,15 +79,42 @@
         <!-- Add more news items as needed -->
     </section>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>If you have any questions or inquiries, please feel free to <a href="mailto:your_email@example.com">send us an email</a>. We'll get back to you as soon as possible.</p>
+    <!-- Testimonials Section -->
+    <!-- <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial">
+            <blockquote>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</blockquote>
+            <p class="author">- John Doe, Gamer</p>
+        </div>
+        <div class="testimonial">
+            <blockquote>"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</blockquote>
+            <p class="author">- Jane Smith, Reviewer</p>
+        </div>
+    </section> -->
+
+    <!-- Social Media Integration Section -->
+    <section id="social-media">
+        <h2>Follow Us</h2>
+        <div class="social-links">
+            <a href="https://twitter.com/your_game_studio" target="_blank">Twitter</a>
+            <a href="https://www.facebook.com/your_game_studio" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/your_game_studio" target="_blank">Instagram</a>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Your Game Studio. All rights reserved.</p>
+    <!-- Events Section -->
+    <section id="events">
+        <h2>Events</h2>
+        <div class="event">
+            <h3>Online Gaming Tournament</h3>
+            <p>Date: TBA</p>
+        </div>
+    </section>
+    
+    <footer class="footer-gradient">
+        <p>&copy; 2024 Anders Studios. All rights reserved.</p>
     </footer>
-
-    <script src="scripts.js"></script> <!-- Link to your JavaScript file -->
+    
+    <script src="scripts.js"></script>
 </body>
 </html>
