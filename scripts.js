@@ -118,36 +118,6 @@ function downloadFiles(fileUrls) {
     });
 }
 
-// Download functions for Windows files
-function downloadWindowsFiles(game) {
-    let files;
-    if (game === 'game1') {
-        files = [
-            'Games/Game1/Tank-Blitzkrieg-(Beta)-0.78.1.7z'
-        ];
-    } else if (game === 'game2') {
-        files = [
-            'Games/Game2/4D-magic-block.zip'
-        ];
-    }
-    downloadFiles(files);
-}
-
-// Download functions for Linux files
-function downloadLinuxFiles(game) {
-    let files;
-    if (game === 'game1') {
-        files = [
-            'Games/Game1/Tank-Blitzkrieg-(Beta)-0.78.1.tar.7z'
-        ];
-    } else if (game === 'game2') {
-        files = [
-            'Games/Game2/4D-magic-block.tar.gz'
-        ];
-    }
-    downloadFiles(files);
-}
-
 // Function to update text colors based on dark mode/light mode
 function updateTextColors() {
     const body = document.body;
