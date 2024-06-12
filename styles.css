@@ -10,17 +10,20 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f8f8;
     color: #333;
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
 }
 
 header {
-    background: linear-gradient(to right, #333, #555); /* Gradient background */
+    background: #333; /* Dark background */
     color: #fff;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between; /* Align toggle mode button to the right */
     align-items: center; /* Center content vertically */
+    position: sticky; /* Stick header to the top */
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
@@ -30,10 +33,14 @@ header h1 {
 
 nav ul {
     list-style-type: none;
+    display: flex; /* Use flexbox for alignment */
+    margin: 0;
+    padding: 0;
+    padding-left: 40px; /* Move the navigation menu slightly more to the right */
 }
 
+
 nav ul li {
-    display: inline;
     margin-right: 20px;
 }
 
@@ -63,10 +70,20 @@ section p {
 }
 
 .game-info {
+    transform: scale(0.95);
     margin-bottom: 40px;
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center;
+    background: #fff; /* White background */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* Smooth scale transition */
+}
+
+.game-info:hover {
+    transform: scale(0.97); /* Slightly enlarge on hover */
 }
 
 .game-info h3 {
@@ -87,8 +104,6 @@ section p {
 }
 
 button {
-    background-color: #ffa500; /* Orange color */
-    color: #fff;
     border: none;
     padding: 10px 20px;
     font-size: 1rem;
@@ -99,15 +114,75 @@ button {
 }
 
 button:hover {
-    background-color: #ff8000; /* Darker orange color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
 footer {
-    background: #333;
+    background: linear-gradient(to right, #333, #555);
     color: #fff;
     text-align: center;
     padding: 1rem;
     margin-top: 40px;
+}
+
+/* Light mode */
+.light-mode {
+    background-color: #f8f8f8; /* Light background */
+    color: #333; /* Dark text color */
+}
+
+.light-mode button {
+    background-color: #555; /* Gray button background */
+    color: #fff; /* White text color */
+}
+
+.light-mode button:hover {
+    background-color: #777; /* Darker gray on hover */
+    color: #fff; /* White text color */
+}
+
+.light-mode .game-info {
+    background: #fff; /* White background */
+    color: #333; /* Dark text color */
+}
+
+.light-mode header {
+    background: #333; /* Dark background */
+    color: #fff; /* White text color */
+}
+
+/* Dark mode */
+.dark-mode {
+    background-color: #333; /* Dark background */
+    color: #fff; /* Light text color */
+}
+
+.dark-mode button {
+    background-color: #ffa500; /* Orange button background */
+    color: #fff; /* White text color */
+}
+
+.dark-mode button:hover {
+    background-color: #ff8000; /* Darker orange on hover */
+    color: #fff; /* White text color */
+}
+
+.dark-mode .game-info {
+    background: #444; /* Dark background */
+    color: #fff; /* Light text color */
+}
+
+.dark-mode header {
+    background: linear-gradient(to right, #222, #444); /* Dark gradient background */
+    color: #fff; /* White text color */
+}
+
+#modeToggle {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    margin-left: auto; /* Align the button to the right */
+    margin-right: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -128,35 +203,14 @@ footer {
     }
 }
 
-/* Dark mode */
-.dark-mode {
-    background-color: #333; /* Dark background */
-    color: #fff; /* Light text color */
+h3 {
+    color: #222; /* Default color for light mode */
 }
 
-.dark-mode header {
-    background: linear-gradient(to right, #222, #444); /* Darker gradient background */
-    box-shadow: 0 2px 4px rgba(255,255,255,0.1); /* Invert shadow color */
+body.dark-mode h3 {
+    color: #fff; /* Color for dark mode */
 }
 
-.dark-mode nav ul li a {
-    color: #fff; /* Light text color */
-}
-
-.dark-mode button {
-    background-color: #ffa500; /* Orange color */
-}
-
-.dark-mode button:hover {
-    background-color: #ff8000; /* Darker orange color on hover */
-}
-
-/* Light mode */
-.light-mode button {
-    background-color: #f2f2f2; /* Light gray color */
-    color: #333; /* Dark text color */
-}
-
-.light-mode button:hover {
-    background-color: #ddd; /* Slightly darker gray color on hover */
+body.light-mode h3 {
+    color: #222;
 }
