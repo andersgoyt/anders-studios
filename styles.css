@@ -123,6 +123,28 @@ footer {
     margin-top: 40px;
 }
 
+footer ul {
+    list-style: none; /* Remove list style from footer */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the list items */
+}
+
+footer ul li {
+    margin: 0 10px; /* Add some spacing between list items */
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer ul li a:hover {
+    color: #ffa500; /* Change color on hover */
+}
+
 /* Light mode */
 .light-mode {
     background-color: #f8f8f8; /* Light background */
