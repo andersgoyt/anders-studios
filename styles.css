@@ -24,6 +24,7 @@ header {
     top: 0;
     z-index: 1000;
     transition: transform 0.3s ease-in-out; /* Smooth transition for header */
+    flex-wrap: wrap; /* Allow content to wrap on small screens */
 }
 
 header h1 {
@@ -36,7 +37,6 @@ nav ul {
     display: flex; /* Use flexbox for alignment */
     margin: 0;
     padding: 0;
-    padding-left: 40px; /* Move the navigation menu slightly more to the right */
 }
 
 nav ul li {
@@ -226,6 +226,7 @@ footer {
         margin-left: 0;
         margin-right: 0;
         align-self: flex-end; /* Align button to the end */
+        margin-top: 10px; /* Add margin to separate from other elements */
     }
 }
 
