@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listeners for download and website buttons (if applicable)
     const downloadButtons = document.querySelectorAll('.game-download');
     const websiteButtons = document.querySelectorAll('.game-website');
+    const demoButtons = document.querySelectorAll('.game-demo'); // Added demo buttons
 
     downloadButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -24,6 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function() {
             const websiteLink = this.getAttribute('data-website');
             redirectToWebsite(websiteLink);
+        });
+    });
+
+    demoButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const demoLink = this.getAttribute('data-demo');
+            redirectToDemo(demoLink);
         });
     });
 
@@ -136,6 +144,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to redirect to a website (replace with your redirection logic)
     function redirectToWebsite(websiteLink) {
         window.open(websiteLink, '_blank');
+    }
+
+    // Function to redirect to a demo (replace with your redirection logic)
+    function redirectToDemo(demoLink) {
+        window.open(demoLink, '_blank');
     }
 
     // Function to update text colors based on dark mode/light mode

@@ -107,18 +107,24 @@ section p {
     line-height: 1.6;
 }
 
-button {
-    border: none;
+button, .game-button {
+    display: inline-block;
     padding: 10px 20px;
-    font-size: 1rem;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for color and background */
-    border-radius: 4px;
-    margin-top: 10px; /* Add space between buttons */
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    margin: 5px;
 }
 
-button:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
+button:hover, .game-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
 }
 
 footer {
@@ -157,12 +163,12 @@ footer ul li a:hover {
     color: #333; /* Dark text color */
 }
 
-.light-mode button {
+.light-mode button, .light-mode .game-button {
     background-color: #555; /* Gray button background */
     color: #fff; /* White text color */
 }
 
-.light-mode button:hover {
+.light-mode button:hover, .light-mode .game-button:hover {
     background-color: #777; /* Darker gray on hover */
     color: #fff; /* White text color */
 }
@@ -183,12 +189,12 @@ footer ul li a:hover {
     color: #fff; /* Light text color */
 }
 
-.dark-mode button {
+.dark-mode button, .dark-mode .game-button {
     background-color: #ffa500; /* Orange button background */
     color: #fff; /* White text color */
 }
 
-.dark-mode button:hover {
+.dark-mode button:hover, .dark-mode .game-button:hover {
     background-color: #ff8000; /* Darker orange on hover */
     color: #fff; /* White text color */
 }
@@ -311,12 +317,9 @@ footer ul li a:hover {
     background-color: #000000; /* TikTok black */
 }
 
-/* Continued from previous */
 .social-link.xcom {
     background-color: #000000; /* X.com (formerly Twitter) blue */
 }
-
-/* Additional styles for specific backgrounds */
 
 .social-link.linkedin {
     background-color: #0077b5; /* LinkedIn blue */
@@ -354,13 +357,109 @@ footer ul li a:hover {
     background-color: #bd081c; /* Pinterest red */
 }
 
-.social-link.whatsapp {
-    background-color: #25D366; /* WhatsApp green */
-}
-
 .social-link.telegram {
     background-color: #0088cc; /* Telegram blue */
 }
 
 /* Example of further styles can be added here */
 
+.game-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 5px;
+}
+
+.game-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+#modeToggle {
+    background: #fff; /* White background */
+    color: #333; /* Dark text */
+    border: 1px solid #333; /* Border matching text color */
+}
+
+.social-media a {
+    margin: 0 10px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-gradient {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer-gradient ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-gradient ul li {
+    margin: 0 10px;
+}
+
+.footer-gradient ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #333;
+    color: #f8f8f8;
+}
+
+body.dark-mode header {
+    background-color: #222; /* Darker background */
+}
+
+body.dark-mode nav ul li a {
+    color: #f8f8f8;
+}
+
+body.dark-mode nav ul li a:hover {
+    color: #ffa500;
+}
+
+body.dark-mode #modeToggle {
+    background: #f8f8f8; /* Light background */
+    color: #333; /* Dark text */
+}
+
+body.dark-mode .game-info {
+    background: #444; /* Darker background */
+    color: #f8f8f8;
+}
+
+.dark-mode button,
+.dark-mode .game-button {
+    background-color: #ffa500; /* Orange button background in dark mode */
+    color: #fff; /* White text color in dark mode */
+}
+
+.dark-mode button:hover,
+.dark-mode .game-button:hover {
+    background-color: #ff8000; /* Darker orange on hover in dark mode */
+    color: #fff; /* White text color on hover in dark mode */
+}
+
+
+body.dark-mode .footer-gradient {
+    background-color: #222; /* Darker background */
+}
