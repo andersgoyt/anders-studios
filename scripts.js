@@ -1,23 +1,22 @@
-// JavaScript for your game studio website
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize download and website buttons
+    const modeToggle = document.getElementById('modeToggle');
+    const body = document.body;
+    const sections = document.querySelectorAll('section');
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    const header = document.querySelector('header');
+    let lastScrollTop = 0;
+
+    // Apply dark mode immediately
+    applyDarkMode();
+
+    // Event listeners for download and website buttons (if applicable)
     const downloadButtons = document.querySelectorAll('.game-download');
     const websiteButtons = document.querySelectorAll('.game-website');
 
     downloadButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const game = this.getAttribute('data-game');
-            const platform = this.getAttribute('data-platform');
-
-            if (platform === 'windows') {
-                downloadWindowsFiles(game);
-            } else if (platform === 'linux') {
-                downloadLinuxFiles(game);
-            } else {
-                const fileLink = this.getAttribute('data-file');
-                downloadGame(fileLink);
-            }
+            const itchIoLink = this.getAttribute('data-itchio');
+            redirectToItchIo(itchIoLink);
         });
     });
 
@@ -28,16 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Toggle dark mode
-    const modeToggle = document.getElementById('modeToggle');
+    // Toggle dark mode when modeToggle button is clicked
     modeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-        updateModeToggleText();
-        updateTextColors(); // Update text colors when toggling mode
+        toggleDarkMode();
     });
 
     // Smooth scroll for anchor links
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
@@ -54,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Update active nav link on scroll
-    const sections = document.querySelectorAll('section');
     window.addEventListener('scroll', function() {
         let currentSectionId = '';
         sections.forEach(section => {
@@ -72,64 +66,91 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.parentElement.classList.remove('active');
             }
         });
+
+        // Show/hide header based on scroll direction
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+            // Scroll down
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // Scroll up or at the top
+            header.style.transform = 'translateY(0)';
+        }
+        lastScrollTop = scrollTop;
     });
 
-    // Initialize mode toggle button text on page load
-    updateModeToggleText();
+    // Function to apply dark mode immediately
+    function applyDarkMode() {
+        const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled';
+        if (darkModeEnabled) {
+            document.body.classList.add('dark-mode');
+            updateModeToggleText();
+            updateTextColors();
+        } else {
+            document.body.classList.remove('dark-mode');
+            updateModeToggleText();
+            updateTextColors();
+        }
+    }
+
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+        if (document.body.classList.contains('dark-mode')) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
+    }
+
+    // Function to enable dark mode
+    function enableDarkMode() {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+        updateModeToggleText();
+        updateTextColors();
+    }
+
+    // Function to disable dark mode
+    function disableDarkMode() {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', null);
+        updateModeToggleText();
+        updateTextColors();
+    }
+
+    // Function to update mode toggle button text
+    function updateModeToggleText() {
+        const modeToggleBtn = document.getElementById('modeToggle');
+        if (document.body.classList.contains('dark-mode')) {
+            modeToggleBtn.textContent = 'Toggle Light Mode';
+        } else {
+            modeToggleBtn.textContent = 'Toggle Dark Mode';
+        }
+    }
+
+    // Function to redirect to itch.io (replace with your redirection logic)
+    function redirectToItchIo(itchIoLink) {
+        window.open(itchIoLink, '_blank');
+    }
+
+    // Function to redirect to a website (replace with your redirection logic)
+    function redirectToWebsite(websiteLink) {
+        window.open(websiteLink, '_blank');
+    }
+
+    // Function to update text colors based on dark mode/light mode
+    function updateTextColors() {
+        const body = document.body;
+        const h3Elements = document.querySelectorAll('h3');
+        
+        if (body.classList.contains('dark-mode')) {
+            h3Elements.forEach(h3 => {
+                h3.style.color = '#eee'; // Adjust text color for dark mode
+            });
+        } else {
+            h3Elements.forEach(h3 => {
+                h3.style.color = '#333'; // Adjust text color for light mode
+            });
+        }
+    }
 });
-
-// Function to update mode toggle button text
-function updateModeToggleText() {
-    const modeToggleBtn = document.getElementById('modeToggle');
-    if (document.body.classList.contains('dark-mode')) {
-        modeToggleBtn.textContent = 'Toggle Light Mode';
-    } else {
-        modeToggleBtn.textContent = 'Toggle Dark Mode';
-    }
-}
-
-// Function to trigger download of a single file
-function downloadGame(fileLink) {
-    const a = document.createElement('a');
-    a.href = fileLink;
-    a.setAttribute('download', '');
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-// Function to redirect to a website
-function redirectToWebsite(websiteLink) {
-    window.open(websiteLink, '_blank');
-}
-
-// Function to trigger download of multiple files
-function downloadFiles(fileUrls) {
-    const delay = 1000; // Delay in milliseconds (adjust as needed)
-    fileUrls.forEach((url, index) => {
-        setTimeout(() => {
-            const a = document.createElement('a');
-            a.href = url;
-            a.setAttribute('download', '');
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }, index * delay);
-    });
-}
-
-// Function to update text colors based on dark mode/light mode
-function updateTextColors() {
-    const body = document.body;
-    const h3Elements = document.querySelectorAll('h3');
-    
-    if (body.classList.contains('dark-mode')) {
-        h3Elements.forEach(h3 => {
-            h3.style.color = '#eee'; // Adjust text color for dark mode
-        });
-    } else {
-        h3Elements.forEach(h3 => {
-            h3.style.color = '#333'; // Adjust text color for light mode
-        });
-    }
-}

@@ -10,7 +10,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f8f8;
     color: #333;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
 }
 
 header {
@@ -24,6 +23,7 @@ header {
     position: sticky; /* Stick header to the top */
     top: 0;
     z-index: 1000;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for header */
 }
 
 header h1 {
@@ -47,7 +47,6 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -201,3 +200,9 @@ footer {
         border-radius: 5px;
     }
 }
+
+.header-hidden {
+    top: -100px; /* Adjust this value based on your header height */
+}
+
+/* Additional styles as needed */
