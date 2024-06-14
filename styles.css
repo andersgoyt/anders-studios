@@ -204,6 +204,7 @@ footer {
     header {
         flex-direction: column; /* Stack elements vertically */
         align-items: flex-start; /* Align items to the start */
+        padding: 1rem; /* Add padding to ensure the content fits */
     }
 
     nav ul {
