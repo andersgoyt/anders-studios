@@ -463,3 +463,28 @@ body.dark-mode .game-info {
 body.dark-mode .footer-gradient {
     background-color: #222; /* Darker background */
 }
+
+/* For WebKit browsers */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* For Firefox */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: #555 #1e1e1e;
+}
