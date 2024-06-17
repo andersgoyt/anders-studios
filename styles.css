@@ -361,6 +361,10 @@ footer ul li a:hover {
     background-color: #0088cc; /* Telegram blue */
 }
 
+.social-link.patreon {
+    background-color: #ff8000;
+}
+
 /* Example of further styles can be added here */
 
 .game-button {
